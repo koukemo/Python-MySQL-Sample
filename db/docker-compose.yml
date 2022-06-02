@@ -1,0 +1,32 @@
+version: '3'
+services:
+  test_db:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: koukemo
+      MYSQL_DATABASE: koukemo
+      MYSQL_USER: koukemo
+      MYSQL_PASSWORD: koukemo
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+  test_migrate:
+    build: .
+    depends_on:
+      - test_db
+    command: ["up"]
+    environment:
+      WAIT_HOSTS: test_db:3306
+      MIGRATIONS_DIR: /migration
+      MYSQL_HOST: test_db
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: koukemo
+      MYSQL_DATABASE: koukemo
+      MYSQL_USER: koukemo
+      MYSQL_PASSWORD: koukemo
+    volumes:
+      - ./migration:/migration
+volumes:
+  db_volume:
+    driver: local
