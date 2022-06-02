@@ -25,7 +25,7 @@ docker-compose up -d
 
 Terminal2
 ```shell
-cd Python-MySQL-Sample
+cd Python-MySQL-Sample/src
 python3 main.py
 ```
 
