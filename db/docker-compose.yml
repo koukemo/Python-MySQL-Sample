@@ -4,6 +4,7 @@ services:
     image: mysql:8
     ports:
       - 3306:3306
+    container_name: test_db
     environment:
       MYSQL_ROOT_PASSWORD: koukemo
       MYSQL_DATABASE: koukemo
@@ -16,6 +17,7 @@ services:
     depends_on:
       - test_db
     command: ["up"]
+    container_name: test_db_migration
     environment:
       WAIT_HOSTS: test_db:3306
       MIGRATIONS_DIR: /migration

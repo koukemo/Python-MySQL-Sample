@@ -1,45 +1,31 @@
-import mysql.connector
+from sql_source.sql_insert import Sqlinsert
 
 def main():
-    cnx = None
+    Sqlinsert.insert_users(1, 'test1', 'test@example.com')
+    Sqlinsert.insert_users(2, 'test2', 'test2@sample.com')
+    Sqlinsert.insert_users(3, 'test3', 'test3@sample.com')
 
-    try:
-        cnx = mysql.connector.connect(
-            user="koukemo",
-            password="koukemo",
-            host="127.0.0.1",
-            database="koukemo"
-        )
+    test1 = "test"
+    test2 = "test2_test"
+    test3 = ("test3")
+    test4 = "(test4)"
 
-        cursor = cnx.cursor()
+    type_check(test1)
+    type_check(test2)
+    type_check(test3)
+    type_check(test4)
+    
+    Sqlinsert.insert_autousers(test1)
+    Sqlinsert.insert_autousers(test2)
+    Sqlinsert.insert_autousers(test3)
+    Sqlinsert.insert_autousers(test4)
 
-        sql = ('''
-        INSERT INTO users
-                (id, name, email)
-            VALUES 
-                (%s, %s, %s)
-        ''')
-
-        data = [
-            ('1', 'test1', 'test@sample.com'),
-            ('2', 'test2', 'test2@sample.com'),
-            ('3', 'test3', 'test3@sample.com')
-        ]
-
-        cursor.executemany(sql, data)
-        cnx.commit()
-
-        print(f"{cursor.rowcount} records inserted.")
-
-        cursor.close()
-
-    except Exception as e:
-        print(f"Error Occurred: {e}")
-
-    finally:
-        if cnx is not None and cnx.is_connected():
-            cnx.close()
-
+def type_check(test: str):
+    print("Data", end=" : ")
+    print(test)
+    print("Type", end=" : ")
+    print(type(test))
+    print("------------")
 
 if __name__ == "__main__":
     main()
