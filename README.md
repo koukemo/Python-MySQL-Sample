@@ -25,10 +25,25 @@ docker-compose up -d
 
 Terminal2
 ```shell
-cd Python-MySQL-Sample/src
-python3 main.py
+python3 src/main.py
 ```
 
+### Other Table Operations
+
+**View Table Name** <br>
+```shell
+python3 src/show.py
+```
+
+<br>
+
+> **Warning**
+> Note that if you do the following, all tables will be empty!
+
+**Delete all data in table** <br>
+```shell
+python3 src/delete.py
+```
 
 ## Results
 

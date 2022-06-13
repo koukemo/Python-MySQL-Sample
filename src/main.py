@@ -1,4 +1,5 @@
-from sql_source.sql_insert import Sqlinsert
+from sql_source.sql_operation import Sqlinsert
+
 
 def main():
     # test datas
@@ -59,6 +60,7 @@ def type_check(test: str):
     print("Type", end=" : ")
     print(type(test))
     print("------------")
+
 
 if __name__ == "__main__":
     main()
