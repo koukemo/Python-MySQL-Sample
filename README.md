@@ -11,6 +11,25 @@ Sample of writing to mysql in docker with python.
 - Python 3.9.x
     - mysql-connector-python (pip)
 
+## Configurations
+
+---
+
+```
+Python-MySQL-Sample
+├── docs
+│   └── figures
+├── db
+│   ├── migration
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── resources
+│   └── jsons
+└── src
+    ├── sql_source
+    └── ${Python files to run}
+```
+
 ## Tests
 
 ---
@@ -49,5 +68,12 @@ python3 src/delete.py
 
 ---
 
-![DB_contents](docs/figures/python-mysql-DB.png)
+Table Content : 
 
+![DB_content](docs/figures/python-mysql-DB.png)
+
+<br>
+
+json content : 
+
+![Json_content](docs/figures/python-json-sample.png)

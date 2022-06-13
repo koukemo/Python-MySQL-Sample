@@ -1,3 +1,6 @@
+import json
+import os
+
 from sql_source.sql_operation import Sqlinsert
 
 
@@ -52,6 +55,15 @@ def main():
 
     # Test of data insertion into [json_tables] table
     Sqlinsert.insert_json_tables("test_data", test_json_data)
+    json_output(test_json_data)
+
+def json_output(data):
+    with open(os.path.join(parent_path(__file__, 1), 'resources/jsons/sample.json'), 'w') as f:
+        json.dump(data, f, indent=4)
+
+
+def parent_path(path=__file__, f=0):
+    return str('/'.join(os.path.abspath(path).split('/')[0:-1-f]))
 
 
 def type_check(test: str):

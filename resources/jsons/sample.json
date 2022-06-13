@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Test",
+        "number": 0,
+        "frame": 0
+    },
+    {
+        "name": "Test2",
+        "number": 1,
+        "frame": 10
+    },
+    {
+        "name": "Test3",
+        "number": 2,
+        "frame": 20
+    }
+]
