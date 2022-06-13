@@ -7,3 +7,8 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+# Saved test Json file
+./resources/jsons/*
+!./resources/jsons/db_json_sample_1.json
+!./resources/jsons/python_json_sample.json

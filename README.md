@@ -47,14 +47,25 @@ Terminal2
 python3 src/main.py
 ```
 
-### Other Table Operations
+## Other Table Operations
+
+### View Table, Data, etc
 
 **View Table Name** <br>
 ```shell
-python3 src/show.py
+python3 src/show_tables.py
+```
+
+**View Table Datas** <br>
+default settings | table : 'json_tables', column : '*' <br>
+(If you want to change the settings, edit src/show_datas.py.)
+```shell
+python3 src/show_datas.py
 ```
 
 <br>
+
+### Delete Data
 
 > **Warning** <br>
 > Note that if you do the following, all tables will be empty!
