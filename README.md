@@ -37,7 +37,7 @@ python3 src/show.py
 
 <br>
 
-> **Warning**
+> **Warning** <br>
 > Note that if you do the following, all tables will be empty!
 
 **Delete all data in table** <br>
