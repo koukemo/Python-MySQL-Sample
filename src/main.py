@@ -1,7 +1,7 @@
 import json
 import os
 
-from sql_source.sql_operation import Sqlinsert
+from sql_source.sql_operation import SqlInsert, JsonOperation
 
 
 def main():
@@ -37,28 +37,36 @@ def main():
     type_check(test_json_data)
 
     # Test of data insertion into [users] table
-    Sqlinsert.insert_users(1, 'test1', 'test@example.com')
-    Sqlinsert.insert_users(2, 'test2', 'test2@sample.com')
-    Sqlinsert.insert_users(3, 'test3', 'test3@sample.com')
+    #SqlInsert.insert_users(1, 'test1', 'test@example.com')
+    #SqlInsert.insert_users(2, 'test2', 'test2@sample.com')
+    #SqlInsert.insert_users(3, 'test3', 'test3@sample.com')
 
     # Test of data insertion into [autousers] table
-    Sqlinsert.insert_autousers(test1)
-    Sqlinsert.insert_autousers(test2)
-    Sqlinsert.insert_autousers(test3)
-    Sqlinsert.insert_autousers(test4)
+    SqlInsert.insert_autousers(test1)
+    SqlInsert.insert_autousers(test2)
+    SqlInsert.insert_autousers(test3)
+    SqlInsert.insert_autousers(test4)
 
     # Test using [autousers_ba] table back apostrophe
-    Sqlinsert.insert_autousers_ba(test1)
-    Sqlinsert.insert_autousers_ba(test2)
-    Sqlinsert.insert_autousers_ba(test3)
-    Sqlinsert.insert_autousers_ba(test4)
+    SqlInsert.insert_autousers_ba(test1)
+    SqlInsert.insert_autousers_ba(test2)
+    SqlInsert.insert_autousers_ba(test3)
+    SqlInsert.insert_autousers_ba(test4)
 
     # Test of data insertion into [json_tables] table
-    Sqlinsert.insert_json_tables("test_data", test_json_data)
+    SqlInsert.insert_json_tables("test_data", test_json_data)
+
+    # Save data created within python in json format
     json_output(test_json_data)
 
+    #Save data in DB in json format
+    json_save_dir_path = os.path.join(parent_path(__file__, 1), 'resources/jsons/')
+    JsonOperation.create_json(json_save_dir_path)
+
+
+
 def json_output(data):
-    with open(os.path.join(parent_path(__file__, 1), 'resources/jsons/sample.json'), 'w') as f:
+    with open(os.path.join(parent_path(__file__, 1), 'resources/jsons/python_json_sample.json'), 'w') as f:
         json.dump(data, f, indent=4)
 
 
