@@ -1,0 +1,4 @@
+# Saved test Json file
+/jsons/*
+!/jsons/db_json_sample_1.json
+!/jsons/python_json_sample.json
